@@ -1,10 +1,15 @@
 @php
     $nav_links = [
         [
-            'name' => 'Home',
+            'name' => 'Inicio',
             'route' => route('home'),
             'active' => request()->routeIs('home')
         ],
+        [
+            'name' => 'Cursos',
+            'route' => route('courses.index'),
+            'active' => request()->routeIs('courses.*')
+        ]
 
     ];
 @endphp
@@ -13,13 +18,13 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
 
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container">
         <div class="flex justify-between h-16">
             <div class="flex">
 
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -124,8 +129,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Entrar</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrarse</a>
                 @endauth
             </div>
 
